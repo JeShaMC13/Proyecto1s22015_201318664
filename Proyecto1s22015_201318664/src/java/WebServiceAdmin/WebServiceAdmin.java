@@ -17,11 +17,13 @@ import javax.jws.WebParam;
 @WebService(serviceName = "WebServiceAdmin")
 public class WebServiceAdmin {
 
+
     /**
-     * This is a sample web service operation
+     * Web service operation
      */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    @WebMethod(operationName = "Login")
+    public String Login(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasena") String Contrasena) {
+        //TODO write your implementation code here:
+        return null;
     }
 }
