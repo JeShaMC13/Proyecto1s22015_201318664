@@ -117,6 +117,17 @@ public class ArbolAdmin {
         return raiz;
     }
     
+    
+    public void insertarDato(String Correo, String Contrasenia){
+        NodoAdmin nuevo = new NodoAdmin(Correo, Contrasenia);
+        if(raiz==null){
+            raiz= nuevo;
+        }else{
+            raiz = insertar(raiz, nuevo.getCorreo(), nuevo.getContrasenia());
+        }
+        
+    }
+     
     //=================================Eliminar nodo==================================================================
      public NodoAdmin EliminarNodo(String correo,NodoAdmin raiz){
         if(raiz==null){

@@ -6,10 +6,12 @@
 
 package WebServiceAdmin;
 
-import javax.jws.WebService;
+import Administrador.ArbolAdmin;
+import Administrador.NodoAdmin;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-
+import javax.jws.WebService;
+import Administrador. *;
 /**
  *
  * @author Jenny
@@ -23,7 +25,21 @@ public class WebServiceAdmin {
      */
     @WebMethod(operationName = "Login")
     public String Login(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasena") String Contrasena) {
-        //TODO write your implementation code here:
+ 
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "Registrar")
+    public String Registrar(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasenia") String Contrasenia) {
+    ArbolAdmin agregar = new  ArbolAdmin();
+    String datosObt = agregar.insertarDato(Correo, Contrasenia);
+        return datosObt;
+    }
+
+
+
+
 }
