@@ -33,10 +33,12 @@ public class WebServiceAdmin {
      * Web service operation
      */
     @WebMethod(operationName = "Registrar")
-    public String Registrar(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasenia") String Contrasenia) {
+    public ArbolAdmin Registrar(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasenia") String Contrasenia) {
     ArbolAdmin agregar = new  ArbolAdmin();
-    String datosObt = agregar.insertarDato(Correo, Contrasenia);
-        return datosObt;
+    agregar.setRaiz(agregar.insertar(agregar.getRaiz(),Correo, Contrasenia));
+ 
+           
+     return agregar;
     }
 
 
