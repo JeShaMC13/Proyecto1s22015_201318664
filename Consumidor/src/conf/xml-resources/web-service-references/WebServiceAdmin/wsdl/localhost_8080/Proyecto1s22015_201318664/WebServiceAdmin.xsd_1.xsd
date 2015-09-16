@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://WebServiceAdmin/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WebServiceAdmin/">
+
+<xs:element name="Login" type="tns:Login"/>
+
+<xs:element name="LoginResponse" type="tns:LoginResponse"/>
+
+<xs:element name="Registrar" type="tns:Registrar"/>
+
+<xs:element name="RegistrarResponse" type="tns:RegistrarResponse"/>
+
+<xs:complexType name="Login">
+<xs:sequence>
+<xs:element name="Correo" type="xs:string" minOccurs="0"/>
+<xs:element name="Contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Registrar">
+<xs:sequence>
+<xs:element name="Correo" type="xs:string" minOccurs="0"/>
+<xs:element name="Contrasenia" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="RegistrarResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:arbolAdmin" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="arbolAdmin">
+<xs:sequence>
+<xs:element name="raiz" type="tns:nodoAdmin" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoAdmin">
+<xs:sequence>
+<xs:element name="contrasenia" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="fe" type="xs:int"/>
+<xs:element name="hijoDerecho" type="tns:nodoAdmin" minOccurs="0"/>
+<xs:element name="hijoIzquierdo" type="tns:nodoAdmin" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
