@@ -11,6 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceRef;
+import webserviceadmin.ArbolAdmin;
+import webserviceadmin.NodoAdmin;
+import webserviceadmin.WebServiceAdmin_Service;
 
 /**
  *
@@ -18,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/Autentificar"})
 public class Autentificar extends HttpServlet {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/Proyecto1s22015_201318664/WebServiceAdmin.wsdl")
+    private WebServiceAdmin_Service service;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +37,19 @@ public class Autentificar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        String cor = request.getParameter("txtCorreo");
+        String con = request.getParameter("txtContra");
+       NodoAdmin agregar = Registrar(cor, con);
             
         }
+
+    private ArbolAdmin registrar(java.lang.String correo, java.lang.String contrasenia) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.       
+        webserviceadmin.WebServiceAdmin port = service.getWebServiceAdminPort();
+        return port.registrar(correo, contrasenia);
     }
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

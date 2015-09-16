@@ -24,7 +24,7 @@ public class WebServiceAdmin {
      * Web service operation
      */
     @WebMethod(operationName = "Login")
-    public String Login(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasena") String Contrasena) {
+    public ArbolAdmin Login(@WebParam(name = "Correo") String Correo, @WebParam(name = "Contrasena") String Contrasena) {
  
         return null;
     }
