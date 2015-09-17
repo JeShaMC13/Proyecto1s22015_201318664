@@ -35,11 +35,11 @@ public class Autentificar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String cor = request.getParameter("txtCorreo");
         String con = request.getParameter("txtContra");
-       NodoAdmin agregar = Registrar(cor, con);
+      // NodoAdmin agregar = Registrar(cor, con);
             
         }
 

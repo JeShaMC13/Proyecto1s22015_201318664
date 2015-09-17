@@ -18,14 +18,33 @@ import java.util.logging.Logger;
  * @author Jenny
  */
 public class ArbolAdmin {
-   private NodoAdmin raiz;
-   private NodoAdmin encontrado;
-   private NodoAdmin grandf;  
-   private int h=0;    
-   private int altura;
+   public NodoAdmin raiz;
+   public NodoAdmin obtenerDato;
+   NodoAdmin encontrado;
+   NodoAdmin grandf;  
+   int h=0;    
+   int altura;
    String cadena1="";
    String cadena2="";
-    
+boolean valor=false;
+
+    public void setObtenerDato(NodoAdmin obtenerDato) {
+        this.obtenerDato = obtenerDato;
+    }
+
+    public void setValor(boolean valor) {
+        this.valor = valor;
+    }
+
+    public NodoAdmin getObtenerDato() {
+        return obtenerDato;
+    }
+
+    public boolean isValor() {
+        return valor;
+    }
+   
+   
     public ArbolAdmin()
     {
         this.raiz = null;
@@ -283,6 +302,7 @@ public class ArbolAdmin {
             if(raiz.getCorreo().equals(cor) && raiz.getContrasenia().equals(contra))
             {
                 encontrado = raiz;
+                valor = true;
             }
             buscar(raiz.getHijoDerecho(),cor,contra);
         }
@@ -423,6 +443,52 @@ public class ArbolAdmin {
         this.raiz = raiz;
     }
     
+     public void setEncontrado(NodoAdmin encontrado) {
+        this.encontrado = encontrado;
+    }
+
+    public void setGrandf(NodoAdmin grandf) {
+        this.grandf = grandf;
+    }
+
+    public void setH(int h) {
+        this.h = h;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public void setCadena1(String cadena1) {
+        this.cadena1 = cadena1;
+    }
+
+    public void setCadena2(String cadena2) {
+        this.cadena2 = cadena2;
+    }
     
+    public NodoAdmin getEncontrado() {
+        return encontrado;
+    }
+
+    public NodoAdmin getGrandf() {
+        return grandf;
+    }
+
+    public int getH() {
+        return h;
+    }
+
+    public int getAltura() {
+        return altura;
+    }
+
+    public String getCadena1() {
+        return cadena1;
+    }
+
+    public String getCadena2() {
+        return cadena2;
+    }
     
 }
